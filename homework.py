@@ -23,7 +23,7 @@ class Calculator:
             if self.today - dt.timedelta(days=7) <= record.date <= self.today:
                 total += record.amount
         return total
-    
+
     def get_remainder(self):
         remainder = self.limit - self.get_today_stats()
         return remainder
@@ -53,17 +53,17 @@ class CaloriesCalculator(Calculator):
 class CashCalculator(Calculator):
     USD_RATE = 73.84
     EURO_RATE = 86.45
-    
+
     def get_today_cash_remained(self, currency):
         self.currency = currency
         currency_dict = {'rub': 'руб', 'usd': 'USD', 'eur': 'Euro'}
         rate_dict = {'rub': 1, 'usd': self.USD_RATE, 'eur': self.EURO_RATE}
-        remainder = round(self.get_remainder()/ rate_dict[self.currency], 2)
+        remainder = round(self.get_remainder() / rate_dict[self.currency], 2)
         if remainder > 0:
             return (f'На сегодня осталось {remainder} '
                     f'{currency_dict[self.currency]}')
         elif remainder < 0:
-            return (f'Денег нет, держись: твой долг - {abs(remainder)} ' 
-                    f'{currency_dict[self.currency]}')
+            return ('Денег нет, держись: твой долг -' 
+                    f' {abs(remainder)} {currency_dict[self.currency]}')
         else:
             return 'Денег нет, держись'
