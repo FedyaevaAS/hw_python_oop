@@ -63,7 +63,7 @@ class CashCalculator(Calculator):
             return (f'На сегодня осталось {remainder} '
                     f'{currency_dict[self.currency]}')
         elif remainder < 0:
-            return ('Денег нет, держись: твой долг' 
-                    f' - {abs(remainder)} {currency_dict[self.currency]}')
+            return ('Денег нет, держись: твой долг - '
+                    f'{abs(remainder)} {currency_dict[self.currency]}')
         else:
             return 'Денег нет, держись'
