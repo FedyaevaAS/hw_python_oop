@@ -11,15 +11,15 @@ class Calculator:
 
     def get_today_stats(self):
         date = dt.date.today()
-        total = sum(record.amount for record in self.records 
-                if record.date == date)
+        total = sum(record.amount for record in self.records
+                    if record.date == date)
         return total
 
     def get_week_stats(self):
         date = dt.date.today()
         date_week_ago = date - dt.timedelta(days=7)
         total = sum(record.amount for record in self.records
-                if date_week_ago <= record.date <= date)
+                    if date_week_ago <= record.date <= date)
         return total
 
     def get_remainder(self):
@@ -54,8 +54,8 @@ class CashCalculator(Calculator):
 
     def get_today_cash_remained(self, currency):
         self.currency = currency
-        currency_dict = {'rub': ('руб', 1), 
-                         'usd': ('USD', self.USD_RATE), 
+        currency_dict = {'rub': ('руб', 1),
+                         'usd': ('USD', self.USD_RATE),
                          'eur': ('Euro', self.EURO_RATE)}
         currency_label, rate = currency_dict[currency]
         remainder = round(self.get_remainder() / rate, 2)
