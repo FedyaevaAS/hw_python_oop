@@ -31,5 +31,3 @@ pip install -r requirements.txt
 
 ### Автор
 Федяева Анастасия
-
-![example workflow](https://github.com/FedyaevaAS/foodgram-project-react/actions/workflows/foodgram_workflow.yml/badge.svg)
